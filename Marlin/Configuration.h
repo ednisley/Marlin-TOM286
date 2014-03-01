@@ -313,11 +313,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define max_software_endstops true  // If true, axis won't move to coordinates greater than the defined lengths below.
 
 // Travel limits after homing
-#define X_MAX_POS 110
-#define X_MIN_POS 0
-#define Y_MAX_POS 125
-#define Y_MIN_POS 0
-#define Z_MAX_POS 170
+#define X_MAX_POS 55
+#define X_MIN_POS -50
+#define Y_MAX_POS 60
+#define Y_MIN_POS -60
+#define Z_MAX_POS 120
 #define Z_MIN_POS 0
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
@@ -392,18 +392,17 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
 
 // default settings
-
 // Computing steps/mm
 // for XY = (motor steps/rev * microstepping) / (pulley teeth * tooth pitch)
 // for  Z = (motor steps/rev * microstepping) / (screw lead) <-- lead = linear advance per turn
 // for  E = (motor steps/rev * microstepping) / (gear ratio * drive circumference) <-- circumference = filament advance per drive turn
 //  make sure ratios use floating point to avoid integer division!
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {(200*16)/(17*2.0), (200*16)/(17*2.0), (200*8)/8.0, (200*4)/((7*30.23)/51)}
-#define DEFAULT_MAX_FEEDRATE          {15000/60, 5000/60, 1500/60, 4000/60}    // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {15000, 5000, 1000, 250}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_MAX_FEEDRATE          {20000/60, 15000/60, 750/60, 4000/60}    // (mm/sec)
+#define DEFAULT_MAX_ACCELERATION      {15000, 5000, 750, 250}    // X, Y, Z, E maximum start speed for accelerated moves.
 
-#define DEFAULT_ACCELERATION          10000   // X, Y, Z and E max acceleration in mm/s^2 for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  10000   // X, Y, Z and E max acceleration in mm/s^2 for retracts
+#define DEFAULT_ACCELERATION          7000   // X, Y, Z and E max acceleration in mm/s^2 for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  7000   // X, Y, Z and E max acceleration in mm/s^2 for retracts
 
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
@@ -412,9 +411,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 // #define EXTRUDER_OFFSET_Y {0.0, 5.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                (30.0*60)    // (mm/sec)
-#define DEFAULT_ZJERK                 (1.0*60)     // (mm/sec)
-#define DEFAULT_EJERK                 (5.0*60)     // (mm/sec)
+#define DEFAULT_XYJERK                (30.0)    // (mm/sec)
+#define DEFAULT_ZJERK                 (1.0)     // (mm/sec)
+#define DEFAULT_EJERK                 (5.0)     // (mm/sec)
 
 //===========================================================================
 //=============================Additional Features===========================
